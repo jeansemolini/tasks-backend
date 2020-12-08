@@ -18,9 +18,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-		<sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.language>java</sonar.language>
 	</properties>
 
 	<dependencies>
@@ -66,16 +67,17 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.6</version>
+				<version>0.8.3</version>
 				<executions>
 					<execution>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
+						<phase>test-compile</phase>
 					</execution>
 					<execution>
 						<id>report</id>
-						<phase>prepare-package</phase>
+						<phase>package</phase>
 						<goals>
 							<goal>report</goal>
 						</goals>
@@ -87,5 +89,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>
