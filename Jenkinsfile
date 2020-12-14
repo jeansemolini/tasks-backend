@@ -42,7 +42,7 @@ pipeline {
                 }
             }
         }
-        stage ('Deploy Backend') {
+        stage ('Deploy Frontend') {
             steps {
                 dir ('frontend') {
                     git credentialsId: 'github login', url: 'https://github.com/jeansemolini/tasks-frontend'
