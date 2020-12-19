@@ -81,7 +81,7 @@ pipeline {
         unsuccessful {
             emailext attachlog: true, body: 'Veja o log em anexo', subject: 'Build $BUILD_NUMBER falhou', to 'jeansemolini@gmail.com'
         }
-        unsuccessful {
+        fixed {
             emailext attachlog: true, body: 'Veja o log em anexo', subject: 'Build voltou ao normal', to: 'jeansemolini@gmail.com'
         }
     }
